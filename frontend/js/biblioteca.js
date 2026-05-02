@@ -52,6 +52,8 @@ function carregarJogos(){
                     <p>${dado.descricao}</p>
                     <p>${dado.categoria}</p>
                     <button onclick="excluirJogo(${dado.id_jogo})">Remover</button>
+                    <button onclick="carregarAvaliacao(${dado.id_jogo})">avaliar</button>
+                    <button onclick="buscarJogo(${dado.id_jogo})">ver</button>
                 </div>
             `;
         });

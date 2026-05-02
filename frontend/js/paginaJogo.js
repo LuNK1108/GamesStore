@@ -1,3 +1,30 @@
+//insere um jogo dentro da biblioteca do cliente
+function comprarJogo(id_jogo){
+    const usuario = JSON.parse(localStorage.getItem("usuario"));
+    const id_cliente = usuario.id_cliente
+    
+    fetch("http://localhost:3000/biblioteca/inserir", {
+        method: "POST",
+        headers: {
+        "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            id_jogo: id_jogo,
+            id_cliente: id_cliente
+        })
+    })
+    .then(res => res.json())
+    .then(dados => {
+        if(dados.status === true){
+            alert("jogo adicionado a biblioteca")
+            window.location.href = "/"
+        } else {
+            alert("erro ao adicionar jogo")
+            window.location.reload()
+        }
+    })
+}
+
 function carregarJogo() {
     const container = document.getElementById("container-jogo");
     const background = document.getElementById("background");
@@ -24,7 +51,9 @@ function carregarJogo() {
 
     container.innerHTML = `
         <section class="pagina-jogo">
-            <a href="/" class="voltar">Voltar para loja</a>
+            <a href="/" class="voltar">Voltar para loja</a
+            <br>
+            <a href="/paginaBiblioteca" class="voltar">biblioteca</a>
 
             <div class="card-jogo">
                 <div class="imagem-area">
@@ -40,16 +69,12 @@ function carregarJogo() {
 
                     <div class="compra-area">
                         <span class="preco">R$ ${jogo.preco}</span>
-                        <button onclick="comprar(${jogo.id_jogo})">Comprar</button>
+                        <button onclick="comprarJogo(${jogo.id_jogo})">Comprar</button>
                     </div>
                 </div>
             </div>
         </section>
     `;
-}
-
-function comprar(id_jogo) {
-    alert("Compra do jogo ID: " + id_jogo);
 }
 
 carregarJogo();
