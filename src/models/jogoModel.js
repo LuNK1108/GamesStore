@@ -48,10 +48,16 @@ function editarJogo(id, jogo, callback){
     conexao.query(sql, valores, callback)
 }
 
+function buscarJogo(id, callback){
+    const sql = "SELECT * FROM jogos WHERE id_jogo = ?"
+    conexao.query(sql, [id], callback)
+}
+
 //exporta a funcão
 module.exports = {
     listarJogos,
     cadastrarJogo,
     excluirJogo,
-    editarJogo
+    editarJogo,
+    buscarJogo
 };

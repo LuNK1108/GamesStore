@@ -3,18 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>GameStore</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/index.css">
 </head>
 <body>
-    <h1>jogos</h1>
-    <a href="./login.html"><button>Logar</button></a>
-    <div id="lista_jogos">
-    </div>
 
+    <header class="topo">
+        <div class="logo">GameStore</div>
+
+        <nav class="menu">
+            <a href="/paginaLogin">
+                <button>Logar</button>
+            </a>
+
+            <a href="./paginaBiblioteca">
+                <button>Biblioteca</button>
+            </a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="banner">
+            <h1>Jogos em destaque</h1>
+            <p>Explore sua próxima aventura</p>
+        </section>
+
+        <section>
+            <h2>Catálogo de Jogos</h2>
+
+            <div id="lista_jogos" class="grid-jogos"></div>
+        </section>
+    </main>
 
 </body>
-<script src="../js/listarJogos.js"></script>
-<script src="../js/biblioteca.js"></script>
+
+<script src="../js/jogo.js"></script>
 </html>

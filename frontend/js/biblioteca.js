@@ -24,3 +24,38 @@ function inserirJogo(id_jogo){
         }
     })
 }
+
+function excluirJogo(id_jogo){
+    fetch(`http://localhost:3000/biblioteca/excluir/${id_jogo}`)
+        .then(res => res.json())
+        .then(dados => {
+            if(dados.status === true){alert(dados.mensagem), window.location.reload()}
+            else{dados.mensagem}
+        })
+}
+
+function carregarJogos(){
+    const usuario = JSON.parse(localStorage.getItem("usuario"));
+    const id_cliente = usuario.id_cliente
+    fetch(`http://localhost:3000/biblioteca/listar/${id_cliente}`)
+    .then(res => res.json())
+    .then(dados => {
+        console.log(dados);
+
+        const lista = document.getElementById("lista-biblioteca");
+        lista.innerHTML = "";
+
+        dados.forEach(dado => {
+            lista.innerHTML += `
+                <div class="card">
+                    <h2>${dado.titulo}</h2>
+                    <p>${dado.descricao}</p>
+                    <p>${dado.categoria}</p>
+                    <button onclick="excluirJogo(${dado.id_jogo})">Remover</button>
+                </div>
+            `;
+        });
+    });
+}
+
+carregarJogos()

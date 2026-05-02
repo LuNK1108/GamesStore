@@ -11,5 +11,6 @@ router.post("/jogos", jogoController.cadastrarJogo);
 router.delete("/jogos/:id", jogoController.excluirJogo);
 //cria uma rota put que editar um jogo pelo id
 router.put("/jogos/:id", jogoController.editarJogo)
-
+//cria uma rota get que encontra um jogo pelo id
+router.get("/busca/jogo/:id_jogo", jogoController.buscarJogo)
 module.exports = router;

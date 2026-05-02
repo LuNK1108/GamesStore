@@ -22,7 +22,7 @@ function clienteLogin(){
             const usuario = JSON.parse(localStorage.getItem("usuario"));
             console.log(usuario);
             alert("Login realizado com sucesso!");
-            window.location.href = "index.html";
+            window.location.href = "/";
             
         } else {
             alert("Email ou senha incorretos");

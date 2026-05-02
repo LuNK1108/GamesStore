@@ -1,0 +1,117 @@
+#background {
+    position: fixed;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(8px) brightness(0.25);
+    transform: scale(1.05);
+    z-index: -1;
+}
+
+.pagina-jogo {
+    width: 90%;
+    max-width: 1100px;
+    margin: 35px auto;
+}
+
+.voltar {
+    display: inline-block;
+    margin-bottom: 25px;
+    color: #66c0f4;
+    text-decoration: none;
+}
+
+.voltar:hover {
+    text-decoration: underline;
+}
+
+.card-jogo {
+    background: linear-gradient(135deg, #1b2838, #16202d);
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 30px;
+    border: 1px solid rgba(102, 192, 244, 0.15);
+}
+
+.imagem-area img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.info-area h1 {
+    font-size: 38px;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.categoria {
+    display: inline-block;
+    background-color: #2a475e;
+    color: #c7d5e0;
+    padding: 6px 12px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.descricao {
+    color: #c7d5e0;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.compra-area {
+    background-color: #111827;
+    padding: 18px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.preco {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.mensagem-erro {
+    width: 90%;
+    max-width: 600px;
+    margin: 80px auto;
+    background: linear-gradient(135deg, #1b2838, #16202d);
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+.mensagem-erro h1 {
+    color: #66c0f4;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 850px) {
+    .card-jogo {
+        grid-template-columns: 1fr;
+    }
+
+    .info-area h1 {
+        font-size: 30px;
+    }
+
+    .compra-area {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .compra-area button {
+        width: 100%;
+    }
+}

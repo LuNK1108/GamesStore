@@ -79,10 +79,21 @@ function editarJogo(req, res){
     })
 }
 
+function buscarJogo(req, res){
+    const id_jogo = req.params.id_jogo;
+    jogoModel.buscarJogo(id_jogo, (erro, resultado) => {
+        if(erro){
+            return res.status(500).json({status: false, mensagem: "erro ao encontrar jogo"})
+        }
+        return res.json({status: true, resultado: resultado})
+    })
+}
+
 
 module.exports = {
     listarJogos,
     cadastrarJogo,
     excluirJogo,
-    editarJogo
+    editarJogo,
+    buscarJogo
 }
