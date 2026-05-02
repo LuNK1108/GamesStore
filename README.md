@@ -29,6 +29,7 @@ Sistema de loja de jogos desenvolvido com foco em **backend utilizando Node.js**
 * Cadastrar jogos
 * Editar jogos
 * Excluir jogos
+* Visualizar página individual do jogo
 
 ### Clientes
 
@@ -39,30 +40,12 @@ Sistema de loja de jogos desenvolvido com foco em **backend utilizando Node.js**
 
 * Adicionar jogo à biblioteca do cliente
 * Listar jogos da biblioteca do cliente
-
+  
+### avaliação]
+* Criar avaliação (nota + comentário)
+* Listar avaliações por jogo
+* Exibir dados do usuário (JOIN com cliente)
 ---
-
-## 🧠 Estrutura do Projeto
-
-```
-GamesStore/
-│
-├── src/
-│   ├── controllers/
-│   ├── models/
-│   ├── routes/
-│   ├── database/
-│   └── server.js
-│
-├── frontend/
-│   ├── index.html
-│   ├── login.html
-│   ├── css/
-│   └── js/
-```
-
----
-
 ## Banco de Dados
 
 ### Tabela `jogos`
@@ -88,27 +71,14 @@ GamesStore/
 * id_jogo (FK)
 * data_adicao
 
----
+### Tabela `avaliacao`
 
-## 🔗 Rotas da API
-
-### Jogos
-
-* `GET /jogos`
-* `POST /jogos`
-* `PUT /jogos/:id`
-* `DELETE /jogos/:id`
-
-### Cliente
-
-* `POST /cliente/login`
-* `POST /cliente/cadastro`
-
-### Biblioteca
-
-* `POST /biblioteca/inserir`
-* `GET /biblioteca/listar/:id_cliente`
-
+* id_avaliacao (PK)
+* id_jogo (FK)
+* id_usuario (FK)
+* nota
+* comentario
+* data_avaliacao
 ---
 
 ## Como Executar
@@ -169,7 +139,6 @@ http://localhost:3000
 
 ## 💡 Melhorias Futuras
 
-* Criptografia de senha com bcrypt
 * Autenticação com JWT
 * Sistema de carrinho de compras
 * Interface mais moderna (React)
